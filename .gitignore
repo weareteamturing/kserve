@@ -65,5 +65,5 @@ python/kserve/tox.ini
 hack/istio-*
 
 # Local Test
-./python/kserve/problem_idx_mappings/
-./python/kserve/custom_transformer.py
+/python/kserve/problem_idx_mappings/
+/python/kserve/custom_transformer.py

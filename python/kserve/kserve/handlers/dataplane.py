@@ -38,7 +38,8 @@ class DataPlane:
 
         # Dynamically fetching version of the installed 'kserve' distribution. The assumption is
         # that 'kserve' will already be installed by the time this class is instantiated.
-        self._server_version = pkg_resources.get_distribution("kserve").version
+        # self._server_version = pkg_resources.get_distribution("kserve").version
+        self._server_version = "0.9.0"
 
     @property
     def model_registry(self):

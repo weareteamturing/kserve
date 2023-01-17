@@ -57,7 +57,7 @@ parser.add_argument('--max_asyncio_workers', default=None, type=int,
                     help='Max number of asyncio workers to spawn')
 parser.add_argument("--enable_grpc", default=True, type=lambda x: bool(strtobool(x)),
                     help="Enable gRPC for the model server")
-parser.add_argument("--enable_docs_url", default=False, type=lambda x: bool(strtobool(x)),
+parser.add_argument("--enable_docs_url", default=True, type=lambda x: bool(strtobool(x)),
                     help="Enable docs url '/docs' to display Swagger UI.")
 parser.add_argument("--enable_latency_logging", default=True, type=lambda x: bool(strtobool(x)),
                     help="Output a log per request with latency metrics.")
@@ -139,7 +139,7 @@ class ModelServer:
 
         return FastAPI(
             title="KServe ModelServer",
-            version=pkg_resources.get_distribution("kserve").version,
+            version="1.0",
             docs_url="/docs" if self.enable_docs_url else None,
             redoc_url=None,
             default_response_class=ORJSONResponse,

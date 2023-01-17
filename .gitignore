@@ -63,3 +63,7 @@ python/kserve/tox.ini
 
 # Downloaded by hack install
 hack/istio-*
+
+# Local Test
+./python/kserve/problem_idx_mappings/
+./python/kserve/custom_transformer.py

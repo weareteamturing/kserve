@@ -112,7 +112,7 @@ class ModelServer:
                  registered_models: ModelRepository = ModelRepository(),
                  enable_grpc: bool = args.enable_grpc,
                  enable_docs_url: bool = args.enable_docs_url,
-                 grpc_server: Optional[GRPCServer] = None
+                 grpc_server: Optional[GRPCServer] = None,
                  enable_latency_logging: bool = args.enable_latency_logging):
         self.registered_models = registered_models
         self.http_port = http_port

@@ -112,7 +112,7 @@ class ModelServer:
                  registered_models: ModelRepository = ModelRepository(),
                  enable_grpc: bool = args.enable_grpc,
                  enable_docs_url: bool = args.enable_docs_url,
-                 grpc_server: Optional[GRPCServer] = None,
+                 grpc_server: Optional[GRPCServer] = GRPCServer,
                  enable_latency_logging: bool = args.enable_latency_logging):
         self.registered_models = registered_models
         self.http_port = http_port
@@ -127,7 +127,7 @@ class ModelServer:
         self.dataplane = DataPlane(model_registry=registered_models)
         self.model_repository_extension = ModelRepositoryExtension(
             model_registry=self.registered_models)
-        self._grpc_server = grpc_server or GRPCServer(grpc_port, self.dataplane, self.model_repository_extension)
+        self._grpc_server = grpc_server(grpc_port, self.dataplane, self.model_repository_extension)
 
     def create_application(self) -> FastAPI:
         """Create a KServe ModelServer application with API routes.
